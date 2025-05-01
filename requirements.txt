@@ -1,0 +1,8 @@
+# Główne zależności dla wszystkich przykładów
+pyttsx3
+requests
+aiohttp
+paramiko
+python-dotenv
+# MCP/unitapi - instalacja lokalna lub z PyPI jeśli dostępne
+-e ../..
