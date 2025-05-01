@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2025-05-01
+
+### Added
+- Changes in CONTRIBUTING.md
+- Changes in MANIFEST.in
+- Changes in _config.yml
+- Changes in mcp.code-workspace
+- Changes in mermaid.js
+
+### Removed
+- Changes in update/versions.py
+
 ## [0.1.1] - 2025-05-01
 
 ### Added
