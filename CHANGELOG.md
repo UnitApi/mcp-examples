@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2025-05-01
+
+### Added
+- Changes in fedora/README.md
+- Changes in fedora/install.sh
+- Changes in install/README.md
+- Changes in install/SPACY.md
+- Changes in install/common.sh
+- Changes in install/install_tkinter.ps1
+- Changes in install/install_tkinter.sh
+- Changes in install/py3.sh
+- Changes in install/py311.sh
+- Changes in install/pyaudio.py
+- Changes in install/pyaudio2.py
+- Changes in install/pyaudiodiag.py
+- Changes in install/pyautogui.md
+- Changes in install/pyautogui.py
+- Changes in install/python312.sh
+- Changes in install/windows.ps1
+- Changes in start.py
+
 ## [0.1.3] - 2025-05-01
 
 ### Removed

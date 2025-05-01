@@ -47,6 +47,10 @@ pip install -e ".[dev]"
 pipreqs --force .
 ```
 
+upgrade
+```bash
+pip install -r requirements.txt --upgrade
+```
 
 ## Standardy kodowania
 
