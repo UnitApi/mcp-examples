@@ -1,15 +1,22 @@
 #!/bin/bash
 # install_remote.sh: Install rpi_control on a remote machine via SSH
-# Usage: bash install_remote.sh user@remote_host [remote_path]
+# Usage: bash install_remote.sh [user@remote_host] [remote_path]
 set -e
 
-if [ -z "$1" ]; then
+# Load .env if present
+if [ -f .env ]; then
+  set -a
+  . ./.env
+  set +a
+fi
+
+REMOTE="${1:-$REMOTE}"
+REMOTE_PATH="${2:-$REMOTE_PATH}"
+
+if [ -z "$REMOTE" ]; then
     echo "Usage: $0 user@remote_host [remote_path]"
     exit 1
 fi
-
-REMOTE="$1"
-REMOTE_PATH="${2:-~/pi}"  # Default to ~/rpi_control if not specified
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 

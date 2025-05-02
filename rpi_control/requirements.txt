@@ -1,2 +1,4 @@
 unitmcp
 paho-mqtt
+simpleaudio
+pydub

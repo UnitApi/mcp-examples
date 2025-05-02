@@ -2,7 +2,14 @@
 # start.sh: Run install.sh and start all example clients in examples/
 set -e
 
-dir="$(dirname "$0")"
+# Load .env if present
+if [ -f .env ]; then
+  set -a
+  . ./.env
+  set +a
+fi
+
+dir="${SCRIPT_DIR:-$(dirname "$0")}"
 cd "$dir"
 
 bash install.sh
