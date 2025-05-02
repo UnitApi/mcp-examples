@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.8] - 2025-05-02
+
+### Added
+- Changes in rpi_control/remote/files.sh
+- Changes in rpi_control/remote/install.sh
+- Changes in rpi_control/remote/requirements.txt
+- Changes in rpi_control/remote/scp.sh
+- Changes in rpi_control/remote/start.sh
+
+### Changed
+- Changes in rpi_control/README.md
+- Changes in rpi_control/env.sample
+- Changes in rpi_control/requirements.txt
+
+### Removed
+- Changes in rpi_control/update_remote.sh
+
+### Fixed
+- Changes in rpi_control/install.sh
+
 ## [0.1.7] - 2025-05-02
 
 ### Added

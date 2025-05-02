@@ -66,6 +66,50 @@ This will:
 1. Copy all files to the remote directory
 2. Run `install.sh` on the remote
 
+## Folder Structure
+
+- `local/`: Scripts to run on your development machine (e.g., update_remote.sh)
+- `remote/`: Files/scripts to be deployed and run on the Raspberry Pi (e.g., install.sh, requirements.txt)
+
+## Usage
+
+### 1. Local to Remote Sync
+
+- Edit `.env` in the root directory to set `REMOTE`, `REMOTE_PATH`, and `RPI_USERNAME`.
+- Run the sync script from your local machine:
+
+  ```bash
+  cd local
+  bash update_remote.sh
+  ```
+
+### 2. Remote Setup
+
+- SSH into your Raspberry Pi:
+
+  ```bash
+  ssh pi@<your_rpi_ip>
+  ```
+
+- Go to the `remote` directory and run:
+
+  ```bash
+  cd remote
+  bash install.sh
+  ```
+
+  This will install all required system and Python dependencies in a virtual environment.
+
+- To use the environment later, activate it with:
+
+  ```bash
+  source venv/bin/activate
+  ```
+
+---
+
+Make sure to keep `.env` in the project root and not inside `local` or `remote`.
+
 ## Examples
 
 - `examples/full_demo.py`: Complete workflow demo (LED control + audio recording)
