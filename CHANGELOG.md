@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2025-05-02
+
+### Added
+- Changes in examples/audio_record.py
+- Changes in examples/hello_world.py
+- Changes in examples/led_control.py
+- Changes in examples/mqtt_example.py
+- Changes in install_deps.sh
+- Changes in setup.py
+- Changes in tts/README_MINIMAL_OLLAMA.md
+- Changes in tts/get_weather_from_ollama.py
+- Changes in tts/install_local.sh
+- Changes in tts/install_minimal_ollama.sh
+- Changes in tts/install_remote.sh
+- Changes in tts/server.py
+- Changes in tts/start_client.sh
+- Changes in tts/start_ollama.sh
+- Changes in tts/start_server.sh
+- Changes in tts/start_stt_server.sh
+- Changes in tts/start_tts_server.sh
+- Changes in tts/start_unitmcp_client.sh
+- Changes in tts/stt_server.py
+- Changes in tts/unitmcp_client.py
+- Changes in unitmcp/__init__.py
+- Changes in unitmcp/bridges/__init__.py
+- Changes in unitmcp/bridges/mqtt_bridge.py
+- Changes in unitmcp/hardware_client.py
+- Changes in unitmcp/server.py
+
+### Changed
+- Changes in tts/README.md
+
 ## [0.1.4] - 2025-05-01
 
 ### Added
