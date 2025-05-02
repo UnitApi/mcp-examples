@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2025-05-02
+
+### Added
+- Changes in rpi_control/client.sh
+- Changes in rpi_control/env.sample
+- Changes in rpi_control/examples/audio_record.py
+- Changes in rpi_control/examples/full_demo.py
+- Changes in rpi_control/examples/hello_world.py
+- Changes in rpi_control/examples/led_control.py
+- Changes in rpi_control/examples/mqtt_example.py
+- Changes in rpi_control/examples/rpi_control.py
+- Changes in rpi_control/install.sh
+- Changes in rpi_control/install_remote.sh
+- Changes in rpi_control/requirements.txt
+- Changes in rpi_control/start.sh
+
+### Changed
+- Changes in rpi_control/README.md
+
 ## [0.1.5] - 2025-05-02
 
 ### Added

@@ -7,7 +7,14 @@ This example demonstrates how to control an LED using the MCP Hardware Client.
 
 import logging
 import time
+import os
 from unitmcp import MCPHardwareClient
+from dotenv import load_dotenv
+
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+
+RPI_HOST = os.getenv('RPI_HOST', 'localhost')
+RPI_PORT = int(os.getenv('RPI_PORT', '8080'))
 
 # Configure logging
 logging.basicConfig(
@@ -22,8 +29,8 @@ def main():
     """
     # Create and connect to the MCP hardware client
     client_config = {
-        "server": "localhost",
-        "port": 8080,
+        "server": RPI_HOST,
+        "port": RPI_PORT,
         "protocol": "http"
     }
     client = MCPHardwareClient(client_config)

@@ -15,4 +15,4 @@ if ! curl -s http://localhost:8081/tts -d '{"text":"test"}' > /dev/null; then
 fi
 
 echo "Starting TTS client (Ollama weather forecast to speech)..."
-python3 tts_client_ollama.py
+python3 get_weather_from_ollama.py

@@ -8,7 +8,15 @@ This example demonstrates how to record audio using the MCP Hardware Client.
 import logging
 import time
 import argparse
+import os
 from unitmcp import MCPHardwareClient
+from dotenv import load_dotenv
+
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
+
+RPI_HOST = os.getenv('RPI_HOST', 'localhost')
+RPI_USERNAME = os.getenv('RPI_USERNAME', 'pi')
+RPI_PORT = int(os.getenv('RPI_PORT', '8080'))
 
 # Configure logging
 logging.basicConfig(
@@ -31,35 +39,28 @@ def main():
     
     # Create and connect to the MCP hardware client
     client_config = {
-        "server": "localhost",
-        "port": 8080,
+        "server": RPI_HOST,
+        "port": RPI_PORT,
         "protocol": "http"
     }
     client = MCPHardwareClient(client_config)
     
     # Connect to the server
     if not client.connect():
-        logger.error("Failed to connect to the MCP server")
+        logger.error(f"Failed to connect to the MCP server at {RPI_HOST} as {RPI_USERNAME}")
         return
-    
     try:
-        # Record audio
-        logger.info(f"Recording audio for {args.duration} seconds at {args.sample_rate} Hz with {args.channels} channels")
-        result = client.record_audio(args.duration, args.sample_rate, args.channels)
-        
-        if result["status"] == "success":
+        logger.info(f"Starting audio recording for {args.duration} seconds...")
+        result = client.start_audio_record(duration=args.duration, sample_rate=args.sample_rate, channels=args.channels, output=args.output)
+        if result.get("success", True):
             logger.info(f"Recording completed successfully")
             logger.info(f"Saving to {args.output}")
-            # In a real implementation, we would save the audio data to a file here
-            # For this example, we'll just simulate success
             logger.info(f"Audio saved to {args.output}")
         else:
             logger.error(f"Recording failed: {result.get('message', 'Unknown error')}")
-        
     except KeyboardInterrupt:
         logger.info("Interrupted by user")
     finally:
-        # Disconnect from the server
         client.disconnect()
         logger.info("Example completed")
 

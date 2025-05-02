@@ -1,0 +1,3 @@
+instal remote
+
+uruchom kolejno skrypty

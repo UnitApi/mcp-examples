@@ -6,7 +6,14 @@ rpi_control.py
 
 import asyncio
 import time
+import os
+from dotenv import load_dotenv
 from typing import Dict, Any
+
+load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
+
+RPI_HOST = os.getenv('RPI_HOST', '127.0.0.1')
+RPI_PORT = int(os.getenv('RPI_PORT', '8888'))
 
 from mcp_hardware import MCPHardwareClient, MCPServer, PermissionManager
 from mcp_hardware.server.gpio import GPIOServer
@@ -16,7 +23,7 @@ from mcp_hardware.server.input import InputServer
 class RaspberryPiController:
     """Controller for Raspberry Pi hardware demos."""
 
-    def __init__(self, host: str = "127.0.0.1", port: int = 8888):
+    def __init__(self, host: str = RPI_HOST, port: int = RPI_PORT):
         self.client = MCPHardwareClient(host, port)
 
     async def connect(self):
