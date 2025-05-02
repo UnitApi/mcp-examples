@@ -3,9 +3,9 @@
 set -e
 
 # Load variables from .env
-if [ -f ../.env ]; then
+if [ -f .env ]; then
   set -a
-  . ../.env
+  . .env
   set +a
   echo "Loaded variables from .env:"
   echo "RPI_USERNAME: $RPI_USERNAME"

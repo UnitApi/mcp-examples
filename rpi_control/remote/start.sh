@@ -1,18 +1,39 @@
 #!/bin/bash
 set -e
 
-# System dependencies
-sudo apt-get update && sudo apt-get install -y python3-pip python3-dev python3-rpi.gpio libasound2-dev
-
-# Python venv setup
-if [ ! -d "venv" ]; then
-  echo "[rpi_control] Creating Python virtual environment..."
-  python3 -m venv venv
+# Load .env from parent directory
+if [ -f .env ]; then
+  set -a
+  . .env
+  set +a
 fi
 
-# Activate venv and install Python dependencies
-source venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+# Load .env from parent directory
+if [ -f ../.env ]; then
+  set -a
+  . ../.env
+  set +a
+fi
 
-echo "[rpi_control] Installation complete. To use, run: source venv/bin/activate"
+# Activate venv
+if [ ! -d "venv" ]; then
+  echo "[rpi_control] ERROR: venv not found. Run install.sh first."
+  exit 1
+fi
+source venv/bin/activate
+
+# Default: run all Python examples listed in $EXAMPLES, or all in examples if not set
+if [ -z "$EXAMPLES" ]; then
+  EXAMPLES=$(ls examples/*.py | xargs -n1 basename)
+fi
+
+echo "[rpi_control] Starting examples: $EXAMPLES"
+
+for example in $EXAMPLES; do
+  if [ -f "examples/$example" ]; then
+    echo "--- Running $example ---"
+    python "examples/$example"
+  else
+    echo "[WARN] Example not found: examples/$example"
+  fi
+done

@@ -6,7 +6,14 @@ set -e
 # Load .env if present
 if [ -f .env ]; then
   set -a
-  . ./.env
+  . .env
+  set +a
+fi
+
+# Load .env from parent directory
+if [ -f ../.env ]; then
+  set -a
+  . ../.env
   set +a
 fi
 
